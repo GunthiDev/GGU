@@ -1,4 +1,4 @@
-function processLabel(label) {
+const processLabel = (label) => {
     const labelTextElement = label.childNodes[0]?.childNodes[0];
     if (!labelTextElement?.innerText?.includes('::')) return;
 
@@ -14,7 +14,8 @@ function processLabel(label) {
 
     const backgroundColor = labelTextElement.style.backgroundColor;
     if (backgroundColor)
-        labelTextElement.parentElement.parentElement.style.setProperty('--label-inset-border', `inset 0 0 0 2px ${backgroundColor}`)
+        labelTextElement.parentElement.parentElement.style.setProperty('--label-inset-border', `inset 0 0 0 2px ${backgroundColor}`);
+
     labelTextElement.parentElement.parentElement.classList.add('gl-label-scoped')
     labelTextElement.parentElement.appendChild(valueElement);
 }
