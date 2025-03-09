@@ -1,0 +1,99 @@
+.settings-wrapper {
+  border: 2px solid var(--sky);
+
+  .title-container {
+    color: var(--sky);
+    .inner {
+      border-top: 1px solid var(--sky);
+    }
+  }
+
+  .settings-container {
+    button {
+      width: 100%;
+      background-color: var(--mantle);
+      border: none;
+      border-top: 1px solid var(--sky);
+      padding: 0.5rem;
+      color: var(--green);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s linear;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    button:hover {
+      background-color: var(--crust);
+      color: var(---green);
+    }
+
+    .setting {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0.5rem;
+      font-size: 1rem;
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 2.2rem;
+        height: 1.2rem;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--red);
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: calc(1.2rem - 4px);
+        width: calc(1.2rem - 4px);
+        left: 2px;
+        bottom: 2px;
+        background-color: var(--base);
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: var(--green);
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px var(--green);
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(calc(1rem));
+        -ms-transform: translateX(calc(1rem));
+        transform: translateX(calc(1rem));
+      }
+
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 1rem;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+    }
+  }
+}

@@ -1,16 +1,18 @@
 {
-  "name": "Gunthi's GitLab Upgrader",
-  "description": "This extension delivers a quality-of-life improvement inspired by GitLab's premium UI feature—with more enhancements on the horizon!",
-  "version": "1.1.0",
   "manifest_version": 3,
+  "host_permissions": ["*://*/*"],
+  "permissions": ["tabs", "storage"],
   "content_scripts": [
     {
-      "matches": ["https://git.pemik.hu/*"],
-      "js": ["page.js"]
+      "matches": ["<all_urls>"],
+      "js": ["inject/page.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
     }
   ],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "index.html",
     "default_icon": {
       "16": "images/16.png",
       "32": "images/32.png",
