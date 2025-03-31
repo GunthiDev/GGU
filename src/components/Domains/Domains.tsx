@@ -27,7 +27,7 @@ const Domains: React.FC = () => {
     domain: string;
     issueBoard: string;
   }) => void = (entry) => {
-    let filteredDomains = domains.filter(
+    const filteredDomains = domains.filter(
       (e) => !(e.domain === entry.domain && e.issueBoard === entry.issueBoard)
     );
 

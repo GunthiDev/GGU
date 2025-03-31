@@ -1,3 +1,4 @@
+import ciEnvironmentHighlight from "./ci-environment-highlight";
 import keepSearch from "./keep-search";
 import scopedLables from "./scoped-labels";
 
@@ -15,6 +16,10 @@ chrome.storage.local.get(["domains", "settings"], (results) => {
 
     if (results?.settings?.keepSearch) {
       keepSearch();
+    }
+
+    if (results?.settings?.ciEnvironmentHighlight) {
+      ciEnvironmentHighlight();
     }
   }
 });

@@ -4,7 +4,7 @@
   "description": "This extension delivers a quality-of-life improvement inspired by GitLab's premium UI feature—with more enhancements on the horizon!",
   "author": "Bálint \"Günthi\" Lengyel",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

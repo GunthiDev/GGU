@@ -6,7 +6,8 @@ const Settings: React.FC = () => {
   const [settings, setSettings] = useState<{
     scopedLabels: boolean;
     keepSearch: boolean;
-  }>({ scopedLabels: false, keepSearch: false });
+    ciEnvironmentHighlight: boolean;
+  }>({ scopedLabels: false, keepSearch: false, ciEnvironmentHighlight: false });
 
   useEffect(() => {
     chrome.storage.local.get("settings", (result) => {
@@ -25,6 +26,13 @@ const Settings: React.FC = () => {
     setSettings({
       ...settings,
       keepSearch: !settings.keepSearch,
+    });
+  };
+
+  const updateCIEnvironmentHighlights: () => void = () => {
+    setSettings({
+      ...settings,
+      ciEnvironmentHighlight: !settings.ciEnvironmentHighlight,
     });
   };
 
@@ -56,6 +64,17 @@ const Settings: React.FC = () => {
               onClick={() => updateKeepSearch()}
               type="checkbox"
               checked={settings.keepSearch}
+            />
+            <span className="slider round" />
+          </label>
+        </div>
+        <div className="setting">
+          <span>Highlight CI environments</span>
+          <label className="switch">
+            <input
+              onClick={() => updateCIEnvironmentHighlights()}
+              type="checkbox"
+              checked={settings.ciEnvironmentHighlight}
             />
             <span className="slider round" />
           </label>
